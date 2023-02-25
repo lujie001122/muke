@@ -7,13 +7,15 @@
   }, {
     "path": "pages/index",
     "style": {
-      "navigationBarTitleText": "若依移动端框架",
-      "navigationStyle": "custom"
+      "navigationBarTitleText": "LuKe",
+      "navigationStyle": "custom",
+	  "enablePullDownRefresh": true,
+	  "onReachBottomDistance": 150
     }
   }, {
     "path": "pages/work/index",
     "style": {
-      "navigationBarTitleText": "工作台"
+      "navigationBarTitleText": "学习记录"
     }
   }, {
     "path": "pages/mine/index",
@@ -65,7 +67,8 @@
     "style": {
       "navigationBarTitleText": "浏览文本"
     }
-  }],
+  }
+    ],
   "tabBar": {
     "color": "#000000",
     "selectedColor": "#000000",
@@ -80,7 +83,7 @@
         "pagePath": "pages/work/index",
         "iconPath": "static/images/tabbar/work.png",
         "selectedIconPath": "static/images/tabbar/work_.png",
-        "text": "工作台"
+        "text": "学习记录"
       }, {
         "pagePath": "pages/mine/index",
         "iconPath": "static/images/tabbar/mine.png",
@@ -91,7 +94,7 @@
   },
   "globalStyle": {
     "navigationBarTextStyle": "black",
-    "navigationBarTitleText": "RuoYi",
+    "navigationBarTitleText": "LuKe",
     "navigationBarBackgroundColor": "#FFFFFF"
   }
 }

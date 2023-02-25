@@ -169,7 +169,11 @@
                 <artifactId>luke-common</artifactId>
                 <version>${luke.version}</version>
             </dependency>
-
+            <dependency>
+                <groupId>com.luke</groupId>
+                <artifactId>luke-video</artifactId>
+                <version>${luke.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
@@ -180,6 +184,7 @@
         <module>luke-quartz</module>
         <module>luke-generator</module>
         <module>luke-common</module>
+        <module>luke-video</module>
     </modules>
     <packaging>pom</packaging>
 

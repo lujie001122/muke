@@ -60,7 +60,11 @@
             <groupId>com.luke</groupId>
             <artifactId>luke-generator</artifactId>
         </dependency>
-
+        <!-- 视频-->
+        <dependency>
+            <groupId>com.luke</groupId>
+            <artifactId>luke-video</artifactId>
+        </dependency>
     </dependencies>
 
     <build>
