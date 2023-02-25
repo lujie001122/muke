@@ -10,7 +10,7 @@
       "navigationBarTitleText": "LuKe",
       "navigationStyle": "custom",
 	  "enablePullDownRefresh": true,
-	  "onReachBottomDistance": 150
+	  "onReachBottomDistance": 15
     }
   }, {
     "path": "pages/work/index",

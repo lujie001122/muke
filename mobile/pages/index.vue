@@ -77,11 +77,9 @@
 				this.param.videoType=this.current
 				listVideo(this.param).then(response => {
 					console.log(response)
-					this.vide_goods=response.rows
+					this.vide_goods=this.vide_goods.concat(response.rows)
 					uni.stopPullDownRefresh()
 					this.isLoadMore=false
-					 this.loadStatus='noMore'
-
 				})
 			},
 			getswiperDatas(videoType){
@@ -94,6 +92,7 @@
 			onClickItem(e) {
 				if (this.current !== e.currentIndex) {
 					this.current = e.currentIndex
+					this.vide_goods=[]
 					this.getVideos()
 				}
 			},
@@ -105,17 +104,22 @@
 			},
 			onPullDownRefresh() {
 				this.param.pageNum=1
+				this.vide_goods=[]
 				this.getVideos()
 			},
 			onReachBottom() {
-				this.isLoadMore=true
-				if(this.vide_goods.length<this.param.pageNum*10){ 
-					 this.isLoadMore=false
-					 this.loadStatus='noMore'
-					 return
+				console.log(1)
+				if(!this.isLoadMore){
+					if(this.vide_goods.length<this.param.pageNum*10){
+						 this.isLoadMore=true
+						 this.loadStatus='noMore'
+						 return
+					}
+					this.param.pageNum +=1
+					this.getVideos()
+					
 				}
-				this.getVideos()
-				this.param.pageNum++
+				
 				
 			}
 		}

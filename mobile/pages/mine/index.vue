@@ -25,7 +25,7 @@
       </view>
     </view>
 
-    <view class="content-section">
+<!--    <view class="content-section">
       <view class="mine-actions grid col-4 text-center">
         <view class="action-item" @click="handleJiaoLiuQun">
           <view class="iconfont icon-friendfill text-pink icon"></view>
@@ -43,7 +43,7 @@
           <view class="iconfont icon-dianzan text-green icon"></view>
           <text class="text">点赞我们</text>
         </view>
-      </view>
+      </view> -->
 
       <view class="menu-list">
         <view class="list-cell list-cell-arrow" @click="handleToEditInfo">
@@ -52,7 +52,7 @@
             <view>编辑资料</view>
           </view>
         </view>
-        <view class="list-cell list-cell-arrow" @click="handleHelp">
+<!--        <view class="list-cell list-cell-arrow" @click="handleHelp">
           <view class="menu-item-box">
             <view class="iconfont icon-help menu-icon"></view>
             <view>常见问题</view>
@@ -63,7 +63,7 @@
             <view class="iconfont icon-aixin menu-icon"></view>
             <view>关于我们</view>
           </view>
-        </view>
+        </view> -->
         <view class="list-cell list-cell-arrow" @click="handleToSetting">
           <view class="menu-item-box">
             <view class="iconfont icon-setting menu-icon"></view>
