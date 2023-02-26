@@ -36,7 +36,7 @@
 </template>
 
 <script>
-	import { getVideo,addDanmu,listDanmu } from "@/api/video/video"
+	import { getVideo,addDanmu,listDanmu,addRecord } from "@/api/video/video"
 	import config from '@/config'
 	
 	export default {
@@ -53,6 +53,7 @@
 		},
 		onLoad(option){
 			this.video_id = JSON.parse(option.videoId)
+			this.addRecord();
 			console.log(this.video_id)
 		},
 		onReady() {
@@ -72,6 +73,12 @@
 			timeUpdateCallback: function(e) {
 				this.video_time=e.detail.currentTime
 			},
+			addRecord(){
+				let data = {
+					videoId:this.video_id
+				}
+				addRecord(data).then(response => {})
+			},
 			sendDanmu: function() {
 				if(this.danmuValue.length<1){
 					this.$modal.msgSuccess("请输入弹幕内容")
@@ -87,7 +94,7 @@
 				let data={
 					videoId:this.video_id
 				}
-				listDanmu().then(response=>{
+				listDanmu(data).then(response=>{
 					this.danmuList=response
 					this.showVieo=true
 					console.log(response)
@@ -100,6 +107,7 @@
 					videoId:this.video_id
 				}
 				addDanmu(damu).then(response => {
+					this.getDanwuList()
 				});
 				this.danmuValue = '';
 			}

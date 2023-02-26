@@ -37,7 +37,7 @@
 
 <script>
 	import { listDictData } from "@/api/system/dict"
-	import { listVideo } from "@/api/video/video"
+	import { listVideo} from "@/api/video/video"
 	import config from '@/config'
 	export default {
 		data() {
@@ -110,7 +110,8 @@
 			onReachBottom() {
 				if(!this.isLoadMore){
 					if(this.vide_goods.length<this.param.pageNum*10){
-						 this.isLoadMore=true
+						console.log(1)
+						 this.isLoadMore=false
 						 this.loadStatus='noMore'
 						 return
 					}

@@ -20,7 +20,9 @@
   }, {
     "path": "pages/work/index",
     "style": {
-      "navigationBarTitleText": "学习记录"
+      "navigationBarTitleText": "学习记录",
+	  "enablePullDownRefresh": true,
+	  "onReachBottomDistance": 15
     }
   }, {
     "path": "pages/mine/index",

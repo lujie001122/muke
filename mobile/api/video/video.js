@@ -15,6 +15,14 @@ export function getVideo(videoId) {
   })
 }
 
+// 查询学习记录列表
+export function listRecord(query) {
+  return request({
+    url: '/video/record/list',
+    method: 'get',
+    params: query
+  })
+}
 
 // 新增弹幕信息
 export function addDanmu(data) {
@@ -34,3 +42,11 @@ export function listDanmu(query) {
   })
 }
 
+// 新增学习记录
+export function addRecord(data) {
+  return request({
+    url: '/video/record',
+    method: 'post',
+    data: data
+  })
+}
