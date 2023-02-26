@@ -16,9 +16,9 @@
 				<uni-segmented-control :current="current" :values="video_type_items" 
 					:active-color="'#dd524d'" @clickItem="onClickItem" />
 			</view>
-			<uni-list>
+			<uni-list class="imgclass">
 				<!-- to 属性携带参数跳转详情页面，当前只为参考 -->
-				<uni-list-item direction="column" v-for="item in vide_goods" :key="item.id" :note="item.createTime" :to="'/pages/detail/detail?id='+item._id+'&title='+item.title">
+				<uni-list-item direction="column" v-for="item in vide_goods" :key="item.id" :note="item.createTime" :to="'/pages/detail/detail?videoId='+item.videoId">
 					<!-- 通过header插槽定义列表顶部显示为图片 -->
 					<template v-slot:header>
 						<view class="uni-title">{{item.videoBrief}}</view>
@@ -108,7 +108,6 @@
 				this.getVideos()
 			},
 			onReachBottom() {
-				console.log(1)
 				if(!this.isLoadMore){
 					if(this.vide_goods.length<this.param.pageNum*10){
 						 this.isLoadMore=true
@@ -140,6 +139,7 @@
   view {
     font-size: 14px;
     line-height: inherit;
+
   }
 
   /* #endif */
@@ -149,7 +149,10 @@
     font-size: 26rpx;
     margin-top: 10rpx;
   }
-
+  .imgclass{
+	align-items: center;
+	justify-content: center;  
+  }
   .grid-item-box {
     flex: 1;
     /* #ifndef APP-NVUE */
@@ -162,9 +165,8 @@
   }
 
   .uni-margin-wrap {
-    width: 690rpx;
+    // width: 690rpx;
     width: 100%;
-    ;
   }
 
   .swiper {

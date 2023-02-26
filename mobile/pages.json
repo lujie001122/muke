@@ -13,6 +13,11 @@
 	  "onReachBottomDistance": 15
     }
   }, {
+    "path": "pages/detail/detail",
+    "style": {
+      "navigationBarTitleText": "视频详情"
+    }
+  }, {
     "path": "pages/work/index",
     "style": {
       "navigationBarTitleText": "学习记录"
