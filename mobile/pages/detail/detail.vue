@@ -24,7 +24,7 @@
 			<uni-section title="最新热评" type="line" >
 				<uni-list class="imgclass">
 					<!-- to 属性携带参数跳转详情页面，当前只为参考 -->
-					<uni-list-item direction="column" v-for="item in danmuList" :key="item.id">
+					<uni-list-item direction="column" v-for="(item, index)  in danmuList" :key="index">
 						<!-- 通过header插槽定义列表顶部显示为图片 -->
 						<template v-slot:header>
 							<view class="uni-title">{{item.text}}</view>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xuning.danmu.mapper.VideoDanmuMapper">
+    
+    <resultMap type="VideoDanmu" id="VideoDanmuResult">
+        <result property="danmuId"    column="danmu_id"    />
+        <result property="videoId"    column="video_id"    />
+        <result property="text"    column="text"    />
+        <result property="time"    column="time"    />
+        <result property="createBy"    column="create_by"    />
+        <result property="createTime"    column="create_time"    />
+    </resultMap>
+
+    <sql id="selectVideoDanmuVo">
+        select danmu_id, video_id, text,color, time, create_by, create_time from video_danmu
+    </sql>
+
+    <select id="selectVideoDanmuList" parameterType="VideoDanmu" resultMap="VideoDanmuResult">
+        <include refid="selectVideoDanmuVo"/>
+        <where>  
+            <if test="videoId != null "> and video_id = #{videoId}</if>
+            <if test="text != null  and text != ''"> and text = #{text}</if>
+            <if test="time != null "> and time = #{time}</if>
+        </where>
+    </select>
+    <select id="selectVideDamus"  parameterType="VideoDanmu" resultType="map">
+        select text,color, time from video_danmu
+        <where>
+            <if test="videoId != null "> and video_id = #{videoId}</if>
+            <if test="text != null  and text != ''"> and text = #{text}</if>
+            <if test="time != null "> and time = #{time}</if>
+        </where>
+        ORDER BY create_time desc
+    </select>
+    <select id="selectVideoDanmuByDanmuId" parameterType="Long" resultMap="VideoDanmuResult">
+        <include refid="selectVideoDanmuVo"/>
+        where danmu_id = #{danmuId}
+    </select>
+        
+    <insert id="insertVideoDanmu" parameterType="VideoDanmu" useGeneratedKeys="true" keyProperty="danmuId">
+        insert into video_danmu
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="videoId != null">video_id,</if>
+            <if test="text != null and text != ''">text,</if>
+            <if test="time != null">time,</if>
+            <if test="createBy != null">create_by,</if>
+            <if test="createTime != null">create_time,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="videoId != null">#{videoId},</if>
+            <if test="text != null and text != ''">#{text},</if>
+            <if test="time != null">#{time},</if>
+            <if test="createBy != null">#{createBy},</if>
+            <if test="createTime != null">#{createTime},</if>
+         </trim>
+    </insert>
+
+    <update id="updateVideoDanmu" parameterType="VideoDanmu">
+        update video_danmu
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="videoId != null">video_id = #{videoId},</if>
+            <if test="text != null and text != ''">text = #{text},</if>
+            <if test="time != null">time = #{time},</if>
+            <if test="createBy != null">create_by = #{createBy},</if>
+            <if test="createTime != null">create_time = #{createTime},</if>
+        </trim>
+        where danmu_id = #{danmuId}
+    </update>
+
+    <delete id="deleteVideoDanmuByDanmuId" parameterType="Long">
+        delete from video_danmu where danmu_id = #{danmuId}
+    </delete>
+
+    <delete id="deleteVideoDanmuByDanmuIds" parameterType="String">
+        delete from video_danmu where danmu_id in 
+        <foreach item="danmuId" collection="array" open="(" separator="," close=")">
+            #{danmuId}
+        </foreach>
+    </delete>
+</mapper>

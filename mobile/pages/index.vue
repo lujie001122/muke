@@ -18,7 +18,7 @@
 			</view>
 			<uni-list class="imgclass">
 				<!-- to 属性携带参数跳转详情页面，当前只为参考 -->
-				<uni-list-item direction="column" v-for="item in vide_goods" :key="item.id" :note="item.createTime" :to="'/pages/detail/detail?videoId='+item.videoId">
+				<uni-list-item direction="column" v-for="item in vide_goods" :key="item.videoId" :note="item.createTime" :to="'/pages/detail/detail?videoId='+item.videoId">
 					<!-- 通过header插槽定义列表顶部显示为图片 -->
 					<template v-slot:header>
 						<view class="uni-title">{{item.videoBrief}}</view>
